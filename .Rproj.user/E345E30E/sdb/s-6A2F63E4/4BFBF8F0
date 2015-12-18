@@ -1,0 +1,16 @@
+{
+    "contents" : "\nrm(list=ls())\n\n\n#!!!!!!!!!!!!!!!#\n#!!!! INPUT !!!!#\n#!!!!!!!!!!!!!!!#\n\nfilename = \"VRT4, eerste versie.xlsx\"    # Vul hier de bestandsnaam in met de extensie (voorbeeld: \"file.xlsx\")\n                           \n#!!!!!!!!!!!!!!!#\n#!! END INPUT !!#\n#!!!!!!!!!!!!!!!#\n\n\n\n\n\n###############\n# PREPARATION #\n###############\n\nif(\"gdata\" %in% rownames(installed.packages()) == FALSE) {install.packages(\"gdata\")}\nif(\"reshape\" %in% rownames(installed.packages()) == FALSE) {install.packages(\"reshape\")}\nif(\"plyr\" %in% rownames(installed.packages()) == FALSE) {install.packages(\"plyr\")}\nlibrary(gdata)\nlibrary(reshape)\nlibrary(plyr)\nif(Sys.info()[\"sysname\"]==\"Windows\"){\n  setwd(\"P:/Onderwijsbalie Psychologie/ICT en Onderwijs/Projecten Paul/Analyses/Turnitin Jos/\")}\nif(Sys.info()[\"sysname\"]==\"Darwin\"){\n  setwd(\"/Volumes/fmg-public/Onderwijsbalie Psychologie/ICT en Onderwijs/Projecten Paul/Analyses/Turnitin Jos/Output/\")}\n\n\n#################\n# Read Datafile #\n#################\n\ndata<-read.xls(filename)\nn<-length(unique(data$author))\nng<-length(unique(data$groep))\nnpg<-table(data$groep)\nrubrics<-which(names(data)==\"Quickmarks.onderdeel\")-which(names(data)==\"Rubrics.onderdeel\")+1\nquickmarks<-length(names(data))-which(names(data)==\"Quickmarks.onderdeel\")\n",
+    "created" : 1427891727634.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2078998946",
+    "id" : "4BFBF8F0",
+    "lastKnownWriteTime" : 1427891941,
+    "path" : "/Volumes/fmg-public/Onderwijsbalie Psychologie/ICT en Onderwijs/Projecten Paul/Analyses/Turnitin Jos/Deel2_visuals/Github files/RfileGraphs.R",
+    "project_path" : "RfileGraphs.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
